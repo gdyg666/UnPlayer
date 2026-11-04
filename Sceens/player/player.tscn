@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://t2c4h6ro4bvw"]
+
+[ext_resource type="Script" uid="uid://b125300g2t4wv" path="res://Sceens/player/player.gd" id="1_ygsm3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wvhbo"]
+size = Vector3(0.075, 0.15, 0.008)
+
+[sub_resource type="QuadMesh" id="QuadMesh_wvhbo"]
+size = Vector2(0.068, 0.13)
+
+[node name="Player" type="Node3D" unique_id=378980634]
+script = ExtResource("1_ygsm3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1812205999]
+unique_name_in_owner = true
+current = true
+near = 0.01
+
+[node name="PhoneRig" type="Node3D" parent="Camera3D" unique_id=611686024]
+unique_name_in_owner = true
+
+[node name="PhoneBody" type="MeshInstance3D" parent="Camera3D/PhoneRig" unique_id=1869079802]
+transform = Transform3D(1, 0, 0, 0, 0.7544502, 0.6563574, 0, -0.6563574, 0.7544502, 0, 0, 0)
+mesh = SubResource("BoxMesh_wvhbo")
+
+[node name="PhoneScreen" type="MeshInstance3D" parent="Camera3D/PhoneRig" unique_id=1266614301]
+transform = Transform3D(-0.71598035, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = SubResource("QuadMesh_wvhbo")

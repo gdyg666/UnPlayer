@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://cd4cl1kur6ar3"]
+
+[ext_resource type="PackedScene" uid="uid://t2c4h6ro4bvw" path="res://Sceens/player/player.tscn" id="1_oa506"]
+[ext_resource type="PackedScene" uid="uid://cbfa4cn1ie88a" path="res://Sceens/teacher/teacher.tscn" id="2_xtpaf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ata60"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_oa506"]
+sky_material = SubResource("ProceduralSkyMaterial_ata60")
+
+[sub_resource type="Environment" id="Environment_xtpaf"]
+background_mode = 2
+sky = SubResource("Sky_oa506")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wvhbo"]
+size = Vector3(12, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifow5"]
+size = Vector3(12, 3, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_abi3o"]
+size = Vector3(4, 1.2, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibjym"]
+size = Vector3(1.6, 0.05, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrdhs"]
+size = Vector3(0.06, 0.75, 0.06)
+
+[node name="Main" type="Node3D" unique_id=1682966701]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=676854491]
+environment = SubResource("Environment_xtpaf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=439345615]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="World" type="Node3D" parent="." unique_id=1290522398]
+
+[node name="Floor" type="MeshInstance3D" parent="World" unique_id=884090464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_wvhbo")
+
+[node name="Backwall" type="MeshInstance3D" parent="World" unique_id=66967578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -5)
+mesh = SubResource("BoxMesh_ifow5")
+
+[node name="Blackboard" type="MeshInstance3D" parent="World" unique_id=1220947822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -4.85)
+mesh = SubResource("BoxMesh_abi3o")
+
+[node name="Desk" type="MeshInstance3D" parent="World" unique_id=1524396672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.6)
+mesh = SubResource("BoxMesh_ibjym")
+
+[node name="DeskLeg" type="MeshInstance3D" parent="World" unique_id=1808619649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6536871, 0.3648706, -0.36995065)
+mesh = SubResource("BoxMesh_jrdhs")
+
+[node name="DeskLeg2" type="MeshInstance3D" parent="World" unique_id=733593504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6536871, 0.3648706, -0.9198773)
+mesh = SubResource("BoxMesh_jrdhs")
+
+[node name="DeskLeg3" type="MeshInstance3D" parent="World" unique_id=901170799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67804277, 0.3648706, -0.9198773)
+mesh = SubResource("BoxMesh_jrdhs")
+
+[node name="DeskLeg4" type="MeshInstance3D" parent="World" unique_id=1012805778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67804277, 0.3648706, -0.3884734)
+mesh = SubResource("BoxMesh_jrdhs")
+
+[node name="Player" parent="." unique_id=378980634 instance=ExtResource("1_oa506")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1863803, 0.39686248)
+
+[node name="Teacher" parent="." unique_id=755277415 instance=ExtResource("2_xtpaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.974628)
+
+[editable path="Player"]
